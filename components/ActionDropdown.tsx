@@ -23,9 +23,9 @@ import Link from "next/link";
 import { constructDownloadUrl } from "@/lib/utils";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
-import { renameFile } from "@/lib/actions/file.actions";
+import { renameFile , updateFileUsers } from "@/lib/actions/file.actions";
 import { usePathname } from "next/navigation";
-import { FileDetails } from "./ActionModelContent";
+import { FileDetails, ShareInput } from "./ActionModelContent";
 
 const ActionDropdown = ({ file }: { file: Models.Document }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -33,8 +33,9 @@ const ActionDropdown = ({ file }: { file: Models.Document }) => {
   const [action, setAction] = useState<ActionType | null>(null);
   const [name, setName] = useState(file.name);
   const [isLoading, setIsLoading] = useState(false);
+  const [emails, setEmails] = useState<string[]>([]);
 
-const path = usePathname();
+  const path = usePathname();
 
   const closeAllModals = () => {
     setIsModalOpen(false);
@@ -52,9 +53,8 @@ const path = usePathname();
     const actions = {
       rename: () =>
         renameFile({ fileId: file.$id, name, extension: file.extension, path }),
-      share: () => console.log("share"),
-      delete: () => console.log("delete")
-      ,
+      share: () => updateFileUsers({ fileId: file.$id, emails, path }),
+      delete: () => console.log("delete"),
     };
 
     success = await actions[action.value as keyof typeof actions]();
@@ -62,6 +62,19 @@ const path = usePathname();
     if (success) closeAllModals();
 
     setIsLoading(false);
+  };
+
+  const handleRemoveUser = async (email: string) => {
+    const updatedEmails = emails.filter((e) => e !== email);
+
+    const success = await updateFileUsers({
+      fileId: file.$id,
+      emails: updatedEmails,
+      path,
+    });
+
+    if (success) setEmails(updatedEmails);
+    closeAllModals();
   };
 
   const renderDialogContent = () => {
@@ -90,6 +103,13 @@ const path = usePathname();
             />
           )}
           {value === "details" && <FileDetails file={file} />}
+          {value === "share" && (
+            <ShareInput
+              file={file}
+              onInputChange={setEmails}
+              onRemove={handleRemoveUser}
+            />
+          )}
           
         </DialogHeader>
         {["rename", "delete", "share"].includes(value) && (
@@ -182,7 +202,7 @@ const path = usePathname();
 };
 
 export default ActionDropdown;
-function updateFileUsers(arg0: { fileId: string; emails: any; path: string; }) {
-    throw new Error("Function not implemented.");
-}
+// function updateFileUsers(arg0: { fileId: string; emails: any; path: string; }) {
+//     throw new Error("Function not implemented.");
+// }
 
