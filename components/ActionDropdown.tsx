@@ -95,13 +95,6 @@ const ActionDropdown = ({ file }: { file: Models.Document }) => {
               onChange={(e) => setName(e.target.value)}
             />
           )}
-         {value === "rename" && (
-            <Input
-              type="text"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-            />
-          )}
           {value === "details" && <FileDetails file={file} />}
           {value === "share" && (
             <ShareInput
