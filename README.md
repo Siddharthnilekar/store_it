@@ -60,15 +60,15 @@ And many more features, utilizing the latest **React 19**, **Next.js 15**, and *
 ## <a name="screenshots">🔗 Screenshots</a>
 
 - **Homepage**: ![Homepage](public/screenshots/sign-in.png)
-- **Dashboard**: ![Dashboard](public\screenshots\dashboard.png)
+- **Dashboard**: ![Dashboard](public/screenshots/dashboard.png)
 - **Images Page and Share Functionality**: ![Images Page and Share Functionality](public/screenshots/share-card.png)
 - **OTP Model**: ![OTP Model](public/screenshots/otp-model.png)
 
 ### Mobile Screenshots:
 
-- **Mobile Homepage**: ![Mobile Homepage](public\screenshots\Mobile-HomePage.png)
-- **Mobile Dashboard**: ![Mobile Dashboard](public\screenshots\Mobile-Dashboard.png)
-- **Mobile Navigation**: ![Mobile Navigation](public\screenshots\Mobile-NavigationBar.png)
+- **Mobile Homepage**: ![Mobile Homepage](public/screenshots/Mobile-HomePage.png)
+- **Mobile Dashboard**: ![Mobile Dashboard](public/screenshots/Mobile-Dashboard.png)
+- **Mobile Navigation**: ![Mobile Navigation](public/screenshots/Mobile-NavigationBar.png)
 
 ## Credits
 - This project is done with the help of this video on youtube : [Video Link](https://youtu.be/lie0cr3wESQ?si=vR0XD1NtU-_iLZAi)
