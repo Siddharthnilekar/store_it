@@ -61,7 +61,7 @@ And many more features, utilizing the latest **React 19**, **Next.js 15**, and *
 
 - **Homepage**: ![Homepage](public/screenshots/sign-in.png)
 - **Dashboard**: ![Dashboard](public\screenshots\dashboard.png)
-- **Images Page and Share Functionality**: ![Images Page and Share Functionality](public\screenshots\share-card.png)
+- **Images Page and Share Functionality**: ![Images Page and Share Functionality](public/screenshots/share-card.png)
 - **OTP Model**: ![OTP Model](public/screenshots/otp-model.png)
 
 ### Mobile Screenshots:
